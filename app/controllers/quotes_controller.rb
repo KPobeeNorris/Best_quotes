@@ -47,4 +47,9 @@ class QuotesController < Rulers::Controller
     quote_1 = Rulers::Model::FileModel.find(1)
     render :quote, :obj => quote_1
   end
+
+  def find_submitted
+    quotes = Rulers::Model::FileModel.find_all_by_submitter
+    render :find_by_submitter, :quotes => quotes
+  end
 end
